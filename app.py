@@ -161,17 +161,18 @@ bath= st.text_input("-- bathroom --", 0)
 st.write(f'### Please enter the number of BHK')
 bhk= st.text_input("--bhk --",0)
 
-def predict_price(location,sqft,bath,bhk):    
-    loc_index = np.where(X.columns==location)[0][0]
+def predict_price(location,sqft,bath,bhk): 
+    try:   
+        loc_index = np.where(X.columns==location)[0][0]
 
-    x = np.zeros(len(X.columns))
-    x[0] = sqft
-    x[1] = bath
-    x[2] = bhk
-    if loc_index >= 0:
-        x[loc_index] = 1
-    price = lr_clf.predict([x])[0]
-    try:
+        x = np.zeros(len(X.columns))
+        x[0] = sqft
+        x[1] = bath
+        x[2] = bhk
+        if loc_index >= 0:
+            x[loc_index] = 1
+        price = lr_clf.predict([x])[0]
+    
         if(price<20):
         
             st.write("Sorry some Error in entered data Please Enter some other values ")
@@ -180,6 +181,7 @@ def predict_price(location,sqft,bath,bhk):
 
     except:
         st.write("Sorry some Error in entered data Please Enter some other values ")
+
 
 
 #adding a button
