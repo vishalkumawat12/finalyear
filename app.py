@@ -175,13 +175,12 @@ def predict_price(location,sqft,bath,bhk):
     
         if(price<20):
         
-            st.write("Sorry some Error in entered data Please Enter some other values ")
+            st.write("Sorry , please enter some other values")
         else:
             st.write(price)
 
     except:
-        st.write("Sorry some Error in entered data Please Enter some other values ")
-
+        st.write("Sorry on this location to property is not available")
 
 
 #adding a button
