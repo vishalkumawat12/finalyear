@@ -180,7 +180,7 @@ def predict_price(location,sqft,bath,bhk):
             st.write(price)
 
     except:
-        st.write("Sorry on this location to property is not available")
+        st.write("Sorry on this location no property is available")
 
 
 #adding a button
